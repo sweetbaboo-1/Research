@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XML File Upload</title>
+  </head>
+  <body>
+    <h1>XML File Upload</h1>
+    <form id="uploadForm" enctype="multipart/form-data">
+      <div>
+        <label for="xmlFile1">Select XML File 1:</label>
+        <input type="file" id="xmlFile1" name="xmlFile1" accept=".xml" />
+      </div>
+      <div>
+        <label for="xmlFile2">Select XML File 2:</label>
+        <input type="file" id="xmlFile2" name="xmlFile2" accept=".xml" />
+      </div>
+      <button type="button" onclick="uploadFiles()">Upload</button>
+    </form>
+    <div id="result"></div>
+
+    <h1>Files</h1>
+    <button type="button" onclick="viewFiles()">View Files</button>
+    <div id="filesList"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<university>
+  <student>
+    <name>John Doe</name>
+    <major>Computer Science</major>
+    <year>3</year>
+    <GPA>3.8</GPA>
+  </student>
+  <student>
+    <name>Jane Smith</name>
+    <major>Physics</major>
+    <year>2</year>
+    <GPA>3.5</GPA>
+  </student>
+</university>
