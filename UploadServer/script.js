@@ -33,24 +33,17 @@ function viewFiles() {
       const filesList = document.getElementById("filesList");
       filesList.innerHTML = html;
 
-      // Add event listeners to dynamically added links
       const fileLinks = filesList.getElementsByTagName("a");
       for (let i = 0; i < fileLinks.length; i++) {
         fileLinks[i].addEventListener("click", function (event) {
-          // Prevent default behavior (following the link)
           event.preventDefault();
-          // Extract the file URL
           const fileURL = this.getAttribute("href");
-          // Create a temporary link element
           const link = document.createElement("a");
           link.href = fileURL;
-          // Set target attribute to "_blank" to open in a new tab
           link.setAttribute("target", "_blank");
-          // Trigger a click event on the link
           link.click();
         });
       }
     })
     .catch((error) => console.error("Error fetching files:", error));
 }
-

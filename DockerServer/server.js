@@ -3,6 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const { createLogger, transports, format } = require("winston");
 const cors = require("cors");
+const corsMiddleware = cors();
 
 const hostname = "0.0.0.0";
 const port = 3000;
@@ -13,9 +14,6 @@ const logger = createLogger({
   transports: [new transports.File({ filename: "server.log" })],
 });
 
-const corsMiddleware = cors();
-
-// Function to get the list of files in the uploads directory
 const getUploadedFiles = () => {
   const uploadFolder = path.join(__dirname, "uploads");
   try {
@@ -81,7 +79,6 @@ const server = http.createServer((req, res) => {
         });
       });
     } else if (req.url === "/files" && req.method === "GET") {
-      // Endpoint to serve list of uploaded files as hyperlinks
       const files = getUploadedFiles();
 
       res.statusCode = 200;
@@ -91,8 +88,7 @@ const server = http.createServer((req, res) => {
       let fileListHTML = "<ul>";
       if (files.length > 0) {
         files.forEach((file) => {
-          // Generate URL with /uploads/ as the base path
-          const fileURL = `http://localhost:3000/uploads/${file}`; // Assuming your server serves files from /uploads/
+          const fileURL = `http://localhost:3000/uploads/${file}`;
           console.log(fileURL);
 
           fileListHTML += `<li><a href="${fileURL}" download>${file}</a></li>`;
